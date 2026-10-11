@@ -1,12 +1,382 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>オリジナルサイト</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+U:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <title>mariと申します。</title>
 </head>
+
 <body>
-    <h1>オリジナルサイト</h1>
-    <p>初めてのオリジナルサイトです！ようやく完成です。</p>
+  <div id="loading-left"></div>
+  <div id="loading-right"></div>
+
+  <input type="checkbox" id="menu-toggle">
+
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="#top">TOP</a></li>
+      <li><a href="#profile">PROFILE</a></li>
+      <li><a href="#favorite">FAVORITE</a></li>
+      <li><a href="#daily-life">DAILY LIFE</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#charm-point">CHARM POINT</a></li>
+      <li><a href="#memory">MEMORY</a></li>
+      <li><a href="#message">MESSAGE</a></li>
+    </ul>
+  </nav>
+  <main>
+
+   
+
+    <!-- TOP -->     
+    <section id="top" class="top">
+      <h1>mari</h1>
+      <p>食べる事、寝ること、遊ぶことが大好き。</p>
+
+       <!-- 猫の登場アニメーション -->
+     <div class="cat-animation">
+      <img src="image/leftcat.png" alt="左から登場する猫" class="top-cat top-cat-left">
+      <img src="image/aruku.png" alt="右から登場する猫" class="top-cat top-cat-right">
+     </div>
+    </section>
+
+    <!-- プロフィール -->
+    <section id="profile" class="profile">
+
+      <div class="profile-inner">
+
+        <div class="profile-image">
+          <img src="image/hero.png" alt="まりちゃん" class="hero">
+        </div>
+
+        <div class="profile-text">
+          <h2>Profile プロフィール</h2>
+
+          <dl>
+            <dt>名前：</dt>
+            <dd>まり</dd>
+
+            <dt>ニックネーム：</dt>
+            <dd>まりちゃん</dd>
+
+            <dt>性別：</dt>
+            <dd>女の子</dd>
+
+            <dt>誕生日：</dt>
+            <dd>8月16日</dd>
+
+            <dt>年齢：</dt>
+            <dd>8歳</dd>
+
+            <dt>猫種：</dt>
+            <dd>マンチカン</dd>
+
+            <dt>毛色：</dt>
+            <dd>オレンジ。はちわれ</dd>
+
+            <dt>性格：</dt>
+            <dd>警戒心が強い。だけど甘えん坊</dd>
+
+            <dt>チャームポイント：</dt>
+            <dd>すぐにゴロゴロというところ</dd>
+          </dl>
+
+          <p>ちょっぴり甘えん坊だけど、マイペース。<br>
+            お気に入りの場所ではいつも気持ちよさそうにお昼寝しています。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- だいすきなもの-->
+    <section id="favorite" class="favorite">
+
+      <h2>FAVORITE<span>だいすきなもの</span></h2>
+
+      <div class="favorite-inner">
+
+        <!-- おやつ -->
+        <div class="favorite-item">
+          <img src="image/cyu-ru.png" class="favorite-img oyatu-img" alt="おやつだいすきまりちゃん">
+          <h3>おやつ</h3>
+          <p>ちゅ~るがだいすき♪<br>
+          おやつを見ると目がかがやきます(⌒∇⌒)</p>
+
+        </div>
+
+         <!-- おもちゃ -->
+        <div class="favorite-item">
+          <img src="image/jyaran.png" class="favorite-img toy-img" alt="猫じゃらしであそぶまりちゃん">
+          <h3>おもちゃ</h3>
+          <p>猫じゃらしを見ると<br>
+          突然スイッチ・オン！</p>
+
+        </div>
+
+         <!-- お気に入りの場所 -->
+        <div class="favorite-item">
+          <img src="image/tansu.png" class="favorite-img place-img" alt="お気に入りの場所でくつろぐまりちゃん">
+          <h3>お気に入りの場所</h3>
+          <p>タンスの上がお気に入り。<br>
+          ゴロゴロしながらのんびり♪</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- まりちゃんの一日-->
+    <section id="daily-life" class="daily-life">
+
+      <h2>DAIKYLIFE<span>まりちゃんの一日</span></h2>
+      <div class="daily-inner">
+
+        <div class="daily-item">
+          <div class="time">5:00</div>
+          <div class="daily-text">
+            <h3>おはよう</h3>
+            <p>朝ごはんの催促、ベットにジャンプ!<br>
+              「早く起きて~！」</p>
+          </div>
+        </div>
+
+        <div class="daily-item">
+          <div class="time">8:00</div>
+          <div class="daily-text">
+            <h3>パトロール</h3>
+            <p>毎日の日課。<br>
+              異常ないか部屋をみてまわります！</p>
+          </div>
+        </div>
+
+        <div class="daily-item">
+          <div class="time">11:00</div>
+          <div class="daily-text">
+            <h3>お昼寝</h3>
+            <pお気に入りの場所で、すやすや。<br>
+              のんびりお昼寝タイムです。</p>
+          </div>
+        </div>
+
+        <div class="daily-item">
+          <div class="time">18:00</div>
+          <div class="daily-text">
+            <h3>ごはん</h3>
+            <p>本日いちばん楽しみな時間！<br>
+              ごはんの気配にはとっても敏感です。</p>
+          </div>
+        </div>
+
+        <div class="daily-item">
+          <div class="time">19:00</div>
+          <div class="daily-text">
+            <h3>夜のパトロール</h3>
+            <p>もう一度、異常がないかチェック！<br>
+              猫じゃらしを見つけたら、そのまま遊びタイム♪</p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+
+    <!-- フォトギャラリー-->
+    <section id="gallery" class="gallery">
+      <h2>GALLERY<span>フォトギャラリー</span></h2>
+
+      <div class="gallery-inner">
+
+        <div class="gallery-item gallery01">
+          <img src="image/mari.png" alt="ハンモックに入っているまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery02">
+          <img src="image/DSC_0112.JPG" alt="PCから除くまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery03">
+          <img src="image/DSC_0049.JPG" alt="小さい時のまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery04">
+          <img src="image/acubi.png" alt="あくびをするまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery05">
+          <img src="image/kawaii.png" alt="みつめるまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery06">
+          <img src="image/top.png" alt="おやすみまりちゃん">
+        </div>
+
+        <div class="gallery-item gallery07">
+          <img src="image/tansu.png" alt="箪笥の上から見るまりちゃん">
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--まりちゃんのここがすき -->
+    <section id="charm-point" class="charm-point">
+
+      <h2>charm-point<span>まりちゃんのここがすき</span></h2>
+
+      <div class="charm-inner">
+
+        <div class="charm-item">
+          <span class="charm-number">01</span>
+          <h3>寝てる姿が天使</h3>
+          <p>気持ちよさそうにスヤスヤ。<br>
+            ずっと見ていたくなる寝顔です。</p>
+
+        </div>
+        <div class="charm-item">
+          <span class="charm-number">02</span>
+          <h3>いつも私を監視中</h3>
+          <p>気がつけば、いつもこちらをじーっ。<br>
+            今日もまりちゃんの監視は続きます。</p>
+        </div>
+
+        <div class="charm-item">
+          <span class="charm-number">03</span>
+          <h3>おなかがすいたら、ひっつき虫</h3>
+          <p>ごはんの時間が近づくと急に甘えん坊。<br>
+            ぴったりくっついて離れません♪</p>
+        </div>
+
+        <div class="charm-item">
+          <span class="charm-number">04</span>
+          <h3>おもちゃを見ると目がランラン！</h3>
+          <p>猫じゃらしを見つけた瞬間、遊びモードON！<br>
+            キラキラした目で追いかけます。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!--まりちゃんとの思いで-->
+    <section id="memory" class="memory">
+
+      <h2>MEMORY<span>まりちゃんとの思い出</span></h2>
+
+      <div class="memory-inner">
+
+        <!-- 思い出01 -->
+        <div class="memory-item">
+        
+          <div class="memory-image">
+            <img src="image/DSC_0049.JPG" alt="小さい頃のまりちゃん">
+          </div>  
+
+          <div class="memory-text">
+            <span class="memory-year">2018</span>
+            <h3>まりちゃんとの出会い</h3>
+            <p>
+              小さくてかわいいまりちゃん。<br>
+              わが家での新しい生活が始まりました。
+            </p>
+          </div>
+
+        </div>
+<!-- 思い出02 -->
+        <div class="memory-item reverse">
+        
+          <div class="memory-image">
+            <img src="image/suyasuya.png" alt="成長したまりちゃん">
+          </div>  
+
+          <div class="memory-text">
+            <span class="memory-year">2021</span>
+            <h3>いつもゴロゴロ</h3>
+            <p>
+              お気に入りの場所<br>
+              本日もゴロゴロしてます。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 思い出03 -->
+        <div class="memory-item">
+        
+          <div class="memory-image">
+            <img src="image/hitokoto.jpg" alt="おすわりまりちゃん">
+          </div>  
+
+          <div class="memory-text">
+            <span class="memory-year">2021</span>
+            <h3>そして現在</h3>
+            <p>
+               甘えん坊でマイペースなのは今も変わらず。<br>
+          毎日たくさんの癒やしを届けてくれています♪
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!--まりちゃんからひとこと-->
+    <section id="message" class="message">
+
+      <h2>MESSAGE<span>まりちゃんからひとこと</span></h2>
+
+      <div class="message-inner">
+
+        <div class="message-image">
+          <img src="image/hitokoto.png" alt="まりちゃん">
+        </div>
+
+        <!-- 吹き出し -->
+        <div class="message-text">
+          <p>ここまで見てくれて<br>
+            ありがとうニャー<br>
+            また遊びに来てニャー♪</p>
+        </div>
+      </div>
+
+
+    </section>
+
+  </main>
+
+  <footer>
+    <nav class="footernav">
+      <ul>
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#profile">PROFILE</a></li>
+        <li><a href="#favorite">FAVORITE</a></li>
+        <li><a href="#daily-life">DAILY LIFE</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#charm-point">CHARM POINT</a></li>
+        <li><a href="#memory">MEMORY</a></li>
+        <li><a href="#message">MESSAGE</a></li>
+      </ul>
+    </nav>
+    <small>&copy;2026 mari All Right Reserved.</small>
+  </footer>
+  <button type="button" id="page-top" class="page-top is-show" aria-label="ページ上部へ戻る" fdprocessedid="tlmfzf">
+    <span aria-hidden="true">↑</span>
+  </button>
 </body>
+
 </html>
