@@ -1,0 +1,830 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "M PLUS U", sans-serif;
+}
+#loading-left,
+#loading-right {
+  background: #f0ead5;
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+}
+#loading-left {
+  left: 0;
+  transform-origin: left top;
+}
+#loading-right {
+  right: 0;
+  transform-origin: right top;
+}
+
+#menu-toggle {
+  display: none;
+}
+/* トグルボタンを作成する */
+.hamburger {
+  display: block;
+  width: 35px;
+  height: 27px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between ;
+  cursor: pointer;
+  z-index: 10;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+.menu {
+  width: 100%;
+  height: 100dvh;
+  background-color: #f0ead5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: all 0.3s;
+}
+/* リストの調整 */
+.menu li {
+  list-style: none;
+  text-align: center;
+  margin: 25px 0;
+}
+.menu a {
+  font-size: 1.8rem;
+  color: #e9a616;
+  text-decoration: none;
+}
+/* メニューを表示させる */
+#menu-toggle:checked ~ .menu {
+  right: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(12px) rotate(405deg);
+  background-color: white;
+}
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-12px) rotate(-405deg);
+  background-color: white;
+}
+
+/* 猫が登場するエリア */
+.cat-animation {
+  --cat-width: 150px;
+  --cat-gap: 16px;
+
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+/* 猫の画像 */
+.top-cat {
+  position: absolute;
+  bottom: 0;
+  width: var(--cat-width);
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 中央より少し左に止まる猫 */
+.top-cat-left {
+  right: calc(50% + var(--cat-gap) / 2);
+  animation: cat-from-left 2.5s ease-out both;
+}
+/* 中央より少し右に止まる猫 */
+.top-cat-right {
+  left: calc(50% + var(--cat-gap) / 2);
+  animation: cat-from-right 2.5s ease-out both;
+}
+/* 左の画面外 → 中央 */
+@keyframes cat-from-left {
+  from {
+    transform: translateX(-60vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+/* 右の画面外 → 中央 */
+@keyframes cat-from-right {
+  from {
+    transform: translateX(60vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+/* top */
+#top {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9a616;
+}
+#top h1 {
+  font-size: 20rem;
+}
+section {
+  padding-top: 20px;
+}
+
+/* プロフィール */
+.porfile {
+  padding: 80px 20px;
+}
+
+/* 写真と文章を横並び */
+.profile-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* 左側の写真 */
+.profile-image {
+  width: 45%;
+}
+.profile-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 右側の文章 */
+.profile-text {
+  width: 55%;
+}
+
+/* 見出し */
+.profile-text h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+.profile-text dl {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  row-gap: 12px;
+}
+
+.profile-text dt {
+  font-weight: bold;
+}
+
+.profile-text dd {
+  margin: 0;
+}
+.profile-text p {
+  margin-top: 30px;
+  line-height: 2;
+}
+/* だいすきなもの */
+.favorite {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #fff8f0;
+}
+
+.favorite h2 {
+  margin-bottom: 50px;
+}
+.favorite h2 span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* ３つのカードを横並び */
+.favorite-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+ grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* それそれのカード */
+.favorite-item {
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+
+  border-radius: 20px;
+  background-color: #ffff;
+  overflow: hidden;
+}
+
+写真 写真 */
+.favorite-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+  border-radius: 15px;
+}
+
+/* タイトル */ */
+.favorite-item h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+/* 説明 */
+.favorite-item p {
+  line-height: 1.8;
+  margin: 0;
+}
+.favorite-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
+
+/* まりちゃんの一日 */
+.daily-life {
+  padding: 80px 20px;
+  background-color: #fffaf5;
+}
+.daily-life h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+.daily-life h2 span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+/* タイムライン全体 */
+.daily-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+  /* 縦線 縦線 */ */
+.daily-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 75px;
+  width: 3px;
+  background-color: #e8b89c;
+}
+
+/* ひ時間の時間 */
+.daily-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* 時間 */
+.time {
+  width: 150px;
+  flex-shrink: 0;
+
+  background-color: #e8b89c;
+  color: #fff;
+
+  padding: 12px 15px;
+  border-radius: 30px;
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* 文章部分 */
+.daily-text {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 15px;
+}
+.daily-text h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+.daily-text p {
+  line-height: 1.8;
+}
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  padding: 80px 20px;
+  background-color: #fff8f0;
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+.gallery h2 span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* ギャラリー全体 */
+.gallery-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+
+  /* ４列に分割 */
+  grid-template-columns: repeat(4, 1fr);
+
+  /* 高さ 高さ */ 
+  grid-auto-rows: 220px;
+  gap: 15px;
+}
+/* 画像共通 */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+/* １枚目を大きく */
+.gallery01 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery04 img {
+  object-position: center 10%;
+}
+.gallery07 img {
+  object-position: center 25%;
+}
+
+/* ６枚目を横長 */
+.gallery06 {
+  grid-column: span 2;
+}
+/* ７枚目を横長 */
+.gallery07 {
+  grid-column: span 2;
+}
+/* マウスをのせたとき */
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+/* まりちゃんのここがすき */
+.charm-point {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+/* 見出し */
+.charm-point h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.charm-point h2 span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+/* カード全体 */
+.charm-inner {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* ひとつのカード */
+.charm-item {
+  position: relative;
+
+  padding: 35px 30px;
+  background-color: #fff8f0;
+  border-radius: 20px;
+}
+
+.charm-number {
+  display: inline-block;
+
+  margin-bottom: 15px;
+  padding: 8px 15px;
+
+  background-color: #e8b89c;
+  color: #fff;
+
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+  /* 小見出し */
+  .charm-item h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+
+  /* 文章 */
+  .charm-item p {
+    line-height: 1.8;
+  }
+
+ /* =========================
+   まりちゃんからひとこと
+========================= */
+
+.message {
+  padding: 80px 20px;
+  background-color: #fff8f0;
+}
+
+/* 見出し */
+.message h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.message h2 span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* 写真と吹き出し */
+.message-inner {
+  max-width: 800px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+/* まりちゃんの写真 */
+.message-image {
+  width: 300px;
+}
+
+.message-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 60% top;
+
+  border-radius: 50%;
+}
+
+/* 吹き出し */
+.message-text {
+  position: relative;
+
+  background-color: #fff;
+  padding: 35px 40px;
+
+  border-radius: 30px;
+}
+
+/* 吹き出しの三角 */
+.message-text::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: -20px;
+
+  transform: translateY(-50%);
+
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 25px solid #fff;
+}
+
+.message-text p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.8;
+  text-align: center;
+}
+  /* footer */
+
+footer {
+  text-align: center;background-color: #e9a616;
+  padding: 30px;
+}
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+small {
+  color: #FFF;
+}
+/* =========================
+   まりちゃんとの思い出
+========================= */
+.memory {
+  padding: 80px 20px;
+  background-color: #fff8ef;
+  color: #5b4636;
+}
+
+/* 見出し */
+.memory h2 {
+  margin: 0 0 50px;
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 0.08em;
+}
+.memory h2 span {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+
+}
+/* 全体の幅・思い出同士の間隔 */
+.memory-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* 全体の幅・思い出同士の間隔 */
+.memory-item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* 2つ目は左右を反転 */
+.memory-item.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 写真 */
+.memory-image {
+  flex: 1;
+  min-width: 0;
+}
+.memory-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(91, 70, 54, 0.12);
+}
+/* 文章 */
+.memory-text {
+  flex: 1;
+  min-width: 0;
+}
+/* 年 */
+.memory-year {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 20px;
+  background-color: #f3dfc6;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 各タイトル */
+.memory-text h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  line-height: 1.5;
+}
+/* 本文 */
+.memory-text p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+ /* ==================================
+   ページ上部へ戻るボタン
+================================== */
+
+.page-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1000;
+
+    display: grid;
+    place-items: center;
+
+    width: 58px;
+    height: 58px;
+    padding: 0;
+
+    color: #ffffff;
+    background-color: #668269;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(73, 59, 53, 0.25);
+
+    cursor: pointer;
+
+    /* 最初は非表示 */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition: 
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* 矢印 */
+.page-top span {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* スクロール後に表示 */
+.page-top.is-show {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+/* カーソルを置いた時 */
+.page-top:hover {
+    background-color: #d98242;
+    transform: translateY(-4px);
+}
+
+.page-top:hover span {
+    transform: translateY(-3px);
+}
+
+/* キー操作ド操作 */
+.page-top:focus-visible {
+    outline: 3px solid rgba(217, 130, 66, 0.4);
+    outline-offset: 4px;
+}
+@media screen and (max-width: 768px) {
+  .cat-animation {
+    --cat-width: 100px;
+    --cat-gap: 12px;
+
+    height: 140px;
+  }
+  /* 動きを減らす設定の方には静止表示 */
+  .top-cat {
+    animation: none;
+  }
+  .profile-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile-image,
+  .profile-text {
+    width: 100%;
+  }
+  .profile-text dl {
+    grid-template-columns: 120px 1fr;
+  }
+  .charm-inner {
+    grid-template-columns: 1fr;
+  }
+  .charm-point h2 span {
+    display: block;
+    margin-top: 8px;
+    margin-left: 0;
+  }
+  .message-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .message-image {
+    width: 220px;
+  }
+  .message-image img {
+    height: 220px;
+  }
+  .message-text::before {
+    top: -20px;
+    left: 50%;
+
+    transform: translateY(-50%);
+
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #fff;
+    border-top: 0;
+  }
+  .message h2 span{
+    display: block;
+    margin: 8px 0 0;
+  }
+  .favorite-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .favorite-item {
+    width: 100%;
+    max-width: 400px;
+  }
+  .favorite-item img {
+    height: 280px;
+  }
+  .gallery-inner {
+    grid-template-columns: repeat(2 ,1fr);
+    grid-auto-rows: 180px;
+    gap: 10px;
+  }
+  .gallery01 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .gallery06,
+  .gallery07 {
+    grid-column: span 1;
+  }
+  .memory {
+    padding: 60px 20px;
+  }
+
+  .memory h2 {
+    margin-bottom: 35px;
+    font-size: 28px;
+  }
+  .memory-inner {
+    gap: 45px;
+  }
+  .memory-item,
+  .memory-item.reverse {
+    flex-direction: cokumn;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .memory-image,
+  .memory-text {
+    flex: none;
+    width: 100%;
+  }
+  .memory-text h3 {
+    font-size: 22px;
+  }
+}
