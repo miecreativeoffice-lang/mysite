@@ -130,32 +130,68 @@ html {
   display: block;
 }
 
-/* 中央より少し左に止まる猫 */
+/* 左の猫：中央より少し左で止まる */
 .top-cat-left {
-  right: calc(50% + var(--cat-gap) / 2);
-  animation: cat-from-left 2.5s ease-out both;
+  left: auto;
+  right: calc(50% + 16px);
+  animation:
+    cat-from-left 2.5s ease-out both,
+    cat-disappear 1.5s ease-in-out 3s forwards;
 }
-/* 中央より少し右に止まる猫 */
+
+/* 右の猫：中央より少し右で止まる */
 .top-cat-right {
-  left: calc(50% + var(--cat-gap) / 2);
-  animation: cat-from-right 2.5s ease-out both;
+  right: auto;
+  left: calc(50% + 16px);
+  animation:
+    cat-from-right 2.5s ease-out both,
+    cat-disappear 1.5s ease-in-out 3s forwards;
 }
-/* 左の画面外 → 中央 */
-@keyframes cat-from-left {
+
+/* 2匹が消えたあと、中央に1匹を表示 */
+.top-cat-final {
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: cat-appear 1.5s ease-in-out 4.6s forwards;
+}
+
+/* 2匹がふんわり消える */
+@keyframes cat-disappear {
   from {
-    transform: translateX(-60vw);
+    opacity: 1;
+    filter: blur(0);
   }
   to {
-    transform: translateX(0);
+    opacity: 0;
+    filter: blur(6px);
   }
 }
-/* 右の画面外 → 中央 */
-@keyframes cat-from-right {
+/* 最後の1匹がふんわり現れる */
+@keyframes cat-appear {
   from {
-    transform: translateX(60vw);
+    opacity: 0;
+    filter: blur(6px);
   }
   to {
-    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
+/* 動きを減らす設定では最後の猫だけ表示 */
+@media (prefers-reduced-motion: reduce) {
+  .top-cat-left,
+  .top-cat-right {
+    animation: none;
+    opacity: 0;
+  }
+
+  .top-cat-final {
+    animation: none;
+    opacity: 1;
   }
 }
 /* top */
