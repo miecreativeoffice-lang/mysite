@@ -129,7 +129,25 @@ html {
   object-fit: contain;
   display: block;
 }
+/* 左の画面外から中央へ */
+@keyframes cat-from-left {
+  from {
+    transform: translateX(-60vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
+/* 右の画面外から中央へ */
+@keyframes cat-from-right {
+  from {
+    transform: translateX(60vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 /* 左の猫：中央より少し左で止まる */
 .top-cat-left {
   left: auto;
@@ -789,9 +807,7 @@ small {
     height: 140px;
   }
   /* 動きを減らす設定の方には静止表示 */
-  .top-cat {
-    animation: none;
-  }
+ 
   .profile-inner {
     flex-direction: column;
     gap: 30px;
